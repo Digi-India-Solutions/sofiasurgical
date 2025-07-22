@@ -1,0 +1,60 @@
+/* WhyUs.css */
+.whyus-wrapper {
+  background: linear-gradient(to bottom, #eaf3fc, #ffffff);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.whyus-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.whyus-header h2 {
+  font-size: 32px;
+  color: #003366;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.whyus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.whyus-card {
+  background-color: #ffffff;
+  border-left: 5px solid #007bff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+
+.whyus-card:hover {
+  transform: translateY(-8px);
+}
+
+.whyus-card h3 {
+  color: #004080;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.whyus-card p {
+  color: #444;
+  white-space: pre-line; /* to support line breaks from bullet points */
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media only screen and (max-width: 768px) {
+  .whyus-header h2 {
+  font-size: 22px;
+}
+}
