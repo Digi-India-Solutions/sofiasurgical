@@ -12,10 +12,14 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('login'); // Remove login status
+    sessionStorage.clear(); // Remove login status
     window.location.href = '/login' // Redirect to login page
   };
 
+  const handleSuperAdminLogout = () => {
+    localStorage.removeItem('93e4c022f3abd59b1354b07b61c933fdb1b92a94395e53378190cfaacad485caa656e3853d874f418265e5eaca3ccfe623f68f3b478f7d4be822336a8e0803ab'); 
+    window.location.href = '/super-admin-login'
+  };
   return (
     <>
       <header>
@@ -27,10 +31,14 @@ const Header = () => {
             </div>
           </div>
           <div className="left">
+             <div className="logout" style ={{cursor: "pointer",color:"black"}} onClick={handleSuperAdminLogout}>
+              Log Out Super Admin <i className="fa-solid fa-right-from-bracket"></i>
+            </div>
             <a href="https://sofiasurgicals.com/" target="_blank" rel="noopener noreferrer">
               <i className="fa-solid fa-globe"></i>
               Go To Website
             </a>
+           
             <div className="logout" onClick={handleLogout}>
               Log Out <i className="fa-solid fa-right-from-bracket"></i>
             </div>
@@ -281,6 +289,21 @@ const Header = () => {
                 onClick={handletoggleBtn}
               >
                 <i className="fa-solid fa-tag"></i> Manage FAQs
+              </Link>
+            </li>
+             <li>
+              <Link
+                to="/all-csr"
+                className={
+                  location.pathname === '/all-csv' ||
+                    location.pathname === '/all-csr' ||
+                    location.pathname.startsWith('/all-csr') // Check for dynamic edit-testimonial routes
+                    ? 'active-link'
+                    : ''
+                }
+                onClick={handletoggleBtn}
+              >
+                <i className="fa-solid fa-tag"></i> Manage Csv
               </Link>
             </li>
             <button className='logout mb-5' onClick={handleLogout}>Log Out <i className="fa-solid fa-right-from-bracket"></i></button>

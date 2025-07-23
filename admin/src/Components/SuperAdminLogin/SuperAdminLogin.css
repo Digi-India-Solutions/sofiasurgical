@@ -1,0 +1,47 @@
+/* src/pages/SuperAdminLogin.css */
+.superadmin-login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:#f0f0f0;
+}
+
+.superadmin-login-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.superadmin-login-form h2 {
+  margin: 0;
+  text-align: center;
+  color: #3f51b5;
+}
+
+.superadmin-login-form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.superadmin-login-form button {
+  background: #3f51b5;
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.superadmin-login-form button:hover {
+  background: #2c387e;
+}

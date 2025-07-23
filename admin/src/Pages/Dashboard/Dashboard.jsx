@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBoxOpen, FaTags, FaPhone, FaHandshake, FaEnvelope, FaClinicMedical, FaCogs, FaProductHunt, FaStar } from 'react-icons/fa';
+import { FaBoxOpen, FaTags, FaPhone, FaHandshake, FaEnvelope, FaClinicMedical, FaCogs, FaProductHunt, FaStar,FaFileAlt   } from 'react-icons/fa';
 import './Dashboard.css';
 import { Link } from 'react-router-dom'
 
@@ -73,6 +73,12 @@ const Dashboard = () => {
         <div className="dashboard-card" style={{ backgroundColor: '#ff9999' }}>
           <FaStar className="dashboard-icon" />
           <h3 className="dashboard-title">Testimonial</h3>
+        </div>
+      </Link>
+      <Link to='/all-csr' style={{ textDecoration: "none" }}>
+        <div className="dashboard-card" style={{ backgroundColor: '#52adff' }}>
+          <FaFileAlt  className="dashboard-icon" />
+          <h3 className="dashboard-title">CSR</h3>
         </div>
       </Link>
     </div>
