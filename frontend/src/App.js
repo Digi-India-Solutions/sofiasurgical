@@ -23,33 +23,33 @@ import Csr from './pages/Csr.jsx';
 import WhyUs from './pages/WhyUs.jsx';
 import Blog from './pages/Blog.jsx';
 function App() {
-  useEffect(() => {
-    // Disable right-click context menu
-    const disableRightClick = (e) => {
-      e.preventDefault();
-    };
-    document.addEventListener("contextmenu", disableRightClick);
+  // useEffect(() => {
+  //   // Disable right-click context menu
+  //   const disableRightClick = (e) => {
+  //     e.preventDefault();
+  //   };
+  //   document.addEventListener("contextmenu", disableRightClick);
 
-    // Disable specific keyboard shortcuts
-    const disableShortcuts = (e) => {
-      if (
-        e.ctrlKey && (e.key === "u" || e.key === "U") || // View Source
-        e.ctrlKey && (e.key === "s" || e.key === "S") || // Save
-        e.key === "F12" || // DevTools
-        (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "i")) || // Inspect
-        (e.ctrlKey && e.shiftKey && (e.key === "C" || e.key === "c")) // Copy / Inspect
-      ) {
-        e.preventDefault();
-      }
-    };
-    document.addEventListener("keydown", disableShortcuts);
+  //   // Disable specific keyboard shortcuts
+  //   const disableShortcuts = (e) => {
+  //     if (
+  //       e.ctrlKey && (e.key === "u" || e.key === "U") || // View Source
+  //       e.ctrlKey && (e.key === "s" || e.key === "S") || // Save
+  //       e.key === "F12" || // DevTools
+  //       (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "i")) || // Inspect
+  //       (e.ctrlKey && e.shiftKey && (e.key === "C" || e.key === "c")) // Copy / Inspect
+  //     ) {
+  //       e.preventDefault();
+  //     }
+  //   };
+  //   document.addEventListener("keydown", disableShortcuts);
 
-    // Cleanup event listeners on component unmount
-    return () => {
-      document.removeEventListener("contextmenu", disableRightClick);
-      document.removeEventListener("keydown", disableShortcuts);
-    };
-  }, []);
+  //   // Cleanup event listeners on component unmount
+  //   return () => {
+  //     document.removeEventListener("contextmenu", disableRightClick);
+  //     document.removeEventListener("keydown", disableShortcuts);
+  //   };
+  // }, []);
 
   return (
     <>

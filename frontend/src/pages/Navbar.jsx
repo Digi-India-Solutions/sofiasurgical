@@ -168,7 +168,7 @@ function Navbar() {
                     </button>
                   </form>
                 </div>
-                <div id="google_translate_element" />
+                <div className="cursor-pointer" id="google_translate_element" />
                 <Link to="GetdealerShip">
                   <button className="cta-button mb-2 mb-md-0">
                     <b>Get Dealership</b>

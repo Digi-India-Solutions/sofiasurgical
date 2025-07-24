@@ -4,6 +4,15 @@ import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Loader from "./Loader/Loader";
+import submitenquiry from "../assets/images/submit-enquiry.jpg"; // Replace with your actual image path
+import ongrowing from "../assets/images/ongoing-groing-support.jpg"; // Replace with your actual image path
+import applicationReview from "../assets/images/application-review.jpg"; // Replace with your actual image path
+import agreementsetup from "../assets/images/aggrement-setup.jpg"; // Replace with your actual image path
+import trainingdevelopment from "../assets/images/training-development.jpg"; // Replace with your actual image path
+import eclusive from "../assets/images/ExclusiveTerritory.jpg"; // Replace with your actual image path
+import Attractivemargins from "../assets/images/Attractivemargins.jpg"; // Replace with your actual image path
+import ExportReady from "../assets/images/Compliantexport.jpg"; // Replace with your actual image path
+import worldclass from "../assets/images/WorldClassQuality.jpg"; // Replace with your actual image path
 
 function GetdealerShip() {
   const countries = [
@@ -298,32 +307,41 @@ function GetdealerShip() {
 
                   <div className="partner-benefits">
                     <h3 className="partner-heading">Why Partner With Us?</h3>
-                    <div className="partner-benefit-grid">
+                    <div className="partner-benefit-lines">
                       {[
                         {
                           title: "Exclusive Territory Rights",
                           desc: "Gain designated sales/distribution rights in your region, empowering you to expand without competition.",
+                          icon: eclusive,
                         },
                         {
                           title: "Attractive Margins & Inventory Support",
                           desc: "Access competitive pricing tiers and starter stock options for top-selling products.",
+                          icon: Attractivemargins,
                         },
                         {
                           title: "Compliant & Export-Ready Solutions",
                           desc: "Our implants meet international standards and are export-ready with complete documentation.",
+                          icon: ExportReady,
                         },
                         {
                           title: "World-Class Quality Assurance",
                           desc: "We prioritize precision manufacturing and strict quality control at every stage—from CNC machining to final sterility checks.",
+                          icon: worldclass,
                         },
                       ].map((item, index) => (
-                        <div className="partner-benefit-box" key={index}>
-                          <h4>{item.title}</h4>
-                          <p>{item.desc}</p>
+                        <div
+                          className="d-flex align-items-center mb-4 gap-3" key={index} style={{ borderBottom: "1px solid #ccc", paddingBottom: "12px" }}>
+                          <img style={{ objectFit: "cover" }} src={item.icon} alt={item.title} width={100} height={100} />
+                          <div>
+                            <strong>{item.title}</strong>
+                            <p className="mb-0 small">{item.desc}</p>
+                          </div>
                         </div>
                       ))}
                     </div>
                   </div>
+
 
                   <div className="partner-offers">
                     <h3 className="partner-heading">Benefits of Partnering with Sofia Surgical</h3>
@@ -344,36 +362,49 @@ function GetdealerShip() {
 
                   <div className="partner-process">
                     <h3 className="partner-heading">Dealer Onboarding Process</h3>
-                    <div className="partner-process-steps">
+                    <div className="partner-process-lines">
                       {[
                         {
                           step: "Submit Inquiry",
                           desc: "Complete our dealership form—provide your company profile, market region, and interest area.",
+                          icon: submitenquiry,
                         },
                         {
                           step: "Application Review",
                           desc: "Our team assesses the fit based on region potential, distribution capabilities, and compliance readiness.",
+                          icon: applicationReview,
                         },
                         {
                           step: "Agreement & Setup",
                           desc: "Upon approval, we finalize the partnership agreement, determine product mix, and set pricing levels.",
+                          icon: agreementsetup,
                         },
                         {
                           step: "Training & Launch",
                           desc: "Your team receives in-depth product and sales training, plus marketing support to launch effectively.",
+                          icon: trainingdevelopment,
                         },
                         {
                           step: "Ongoing Growth Support",
                           desc: "Gain access to continuous product training, marketing co-funding, strategic support, and global dealer network events.",
+                          icon: ongrowing,
                         },
                       ].map((item, index) => (
-                        <div className="partner-step" key={index}>
-                          <h4>{item.step}</h4>
-                          <p>{item.desc}</p>
+                        <div
+                          className="d-flex align-items-center mb-4 gap-3"
+                          key={index}
+                          style={{ borderBottom: "1px solid #ccc", paddingBottom: "12px" }}
+                        >
+                          <img src={item.icon} alt={item.step} style={{ objectFit: "cover" }} width={100} height={100} />
+                          <div>
+                            <strong>{item.step}</strong>
+                            <p className="mb-0 small">{item.desc}</p>
+                          </div>
                         </div>
                       ))}
                     </div>
                   </div>
+
                 </div>
               </section>
             </div>

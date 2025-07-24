@@ -1,9 +1,9 @@
-// WhyUs.jsx
 import React from 'react';
 import './WhyUs.css';
+import whyUsImage from '../assets/images/why-us.png'; // Replace with your actual image path
 
 const WhyUs = () => {
-  const reasons = [
+  const reasonsLeft = [
     {
       title: "Unmatched Quality Assurance",
       desc: "We are an ISO 9001:2015 certified leader in orthopedic manufacturing, with rigorous quality controls at every step—from design and production to final inspection and packaging—ensuring you receive consistently top-tier implants and instruments."
@@ -28,6 +28,9 @@ const WhyUs = () => {
       title: "Export-Ready Excellence",
       desc: "Certified and compliant with global import regulations, our implants are expertly packaged, labeled, and accompanied by full documentation—ensuring smooth delivery and regulatory clearance worldwide."
     },
+  ];
+
+  const reasonsRight = [
     {
       title: "Responsive Global Support",
       desc: "Benefit from a dedicated account manager—your single point of contact for fast communication, technical support, quote management, and after-sales service to address every inquiry with speed and transparency."
@@ -55,13 +58,31 @@ const WhyUs = () => {
       <div className="whyus-header">
         <h2>Discover the Key Reasons Why Our Business Solutions Are Your Best Choice</h2>
       </div>
-      <div className="whyus-grid">
-        {reasons.map((item, index) => (
-          <div className="whyus-card" key={index}>
-            <h3>{index + 1}. {item.title}</h3>
-            <p>{item.desc}</p>
-          </div>
-        ))}
+      <div className="whyus-3-column">
+        {/* Left Column */}
+        <div className="whyus-column">
+          {reasonsLeft.map((item, index) => (
+            <div className="whyus-card" key={index}>
+              <h3>{index + 1}. {item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Middle Image */}
+        <div className="whyus-image-container">
+          <img src={whyUsImage} alt="Why Us" />
+        </div>
+
+        {/* Right Column */}
+        <div className="whyus-column">
+          {reasonsRight.map((item, index) => (
+            <div className="whyus-card" key={index + reasonsLeft.length}>
+              <h3>{index + 1 + reasonsLeft.length}. {item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

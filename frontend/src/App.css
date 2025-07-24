@@ -151,6 +151,14 @@ p {
   display: none;
 }
 
+.partner-benefit-lines img {
+  object-fit: contain;
+}
+.partner-heading {
+  margin-bottom: 20px;
+}
+
+
 /* Sticky navbar styling */
 .navbar.sticky {
   position: fixed;
