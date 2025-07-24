@@ -1,23 +1,33 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SuperAdminLogin.css";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const SuperAdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (email === "super@sofiasurgicals.com" && password === "Sofia@@1234") {
-      localStorage.setItem(
-        "93e4c022f3abd59b1354b07b61c933fdb1b92a94395e53378190cfaacad485caa656e3853d874f418265e5eaca3ccfe623f68f3b478f7d4be822336a8e0803ab",
-        "superadmin-token"
+    try {
+      const res = await axios.post(
+        "https://api.sofiasurgicals.com/api/super-admin-sign-in",
+        {
+          email: email,
+          password: password,
+        }
       );
-      navigate("/dashboard");
-    } else {
-      alert("Invalid super admin credentials!");
+
+      if (res.status === 200) {
+        localStorage.setItem("superAdminToken", res.data.token);
+      window.location.href = "/dashboard";
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.response?.data?.message || "Failed to login");
     }
   };
 

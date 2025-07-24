@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import Header from "../Header/Header";
 import Dashboard from "../../Pages/Dashboard/Dashboard";
@@ -58,12 +58,53 @@ import EditCSRImage from "../../Pages/Csv/EditCSRImage";
 import AllEventCSV from "../../Pages/Csv/AllCSV";
 import ProtectedRoute from "../../Utils/ProtectedRoute";
 import SuperAdminLogin from "../SuperAdminLogin/SuperAdminLogin";
+import axios from "axios";
+import { useEffect,useState } from "react";
+import ResetPassword from "../ResetPassword/ResetPassword";
 
 const Home = () => {
-  const login = sessionStorage.getItem("login");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const navigate = useNavigate();
+  const checkAuth = async () => {
+    const currentPath = window.location.pathname;
+    if (currentPath.startsWith("/reset-password")) {
+      return;
+    }
+
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+    try {
+      const res = await axios.post(
+        "https://api.sofiasurgicals.com/api/verify-admin",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (res.data.success) {
+        setIsAuthenticated(true);
+        navigate("/dashboard");
+      }
+    } catch (err) {
+      setIsAuthenticated(false);
+      // localStorage.removeItem('token');
+      navigate("/login");
+    }
+  };
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
   return (
     <>
-      {login ? (
+      {isAuthenticated ? (
         <>
           <Header />
           <div className="rightside">
@@ -109,9 +150,6 @@ const Home = () => {
                 element={<EditInstupmentProduct />}
               />
               {/* --- Orders --- */}
-             
-              
-            
               {/* --- Vouchers --- */}
               <Route
                 path={"/all-testimonial"}
@@ -176,27 +214,27 @@ const Home = () => {
               <Route path="/add-csr/" element={<AddCSRImage />} />
               <Route path="/edit-csr/:id" element={<EditCSRImage />} />
               <Route path="/all-csr" element={<AllEventCSV />} />
-              <Route element={<ProtectedRoute />}>  
-               <Route
-                path={"/all-dealership-query"}
-                element={<AllDealerShip />}
-              />
+              <Route element={<ProtectedRoute />}>
                 <Route
-                path={"/all-career-query"}
-                element={<AllCareerInquery />}
-              />
-              <Route
-                path={"/all-getintouch-query"}
-                element={<AllGetInTouch />}
-              />
-              <Route
-                path={"/all-contact-query"}
-                element={<AllContactQuery />}
-              />
-              <Route
-                path={"/all-catelog-query"}
-                element={<AllDownCatelogQuery />}
-              />
+                  path={"/all-dealership-query"}
+                  element={<AllDealerShip />}
+                />
+                <Route
+                  path={"/all-career-query"}
+                  element={<AllCareerInquery />}
+                />
+                <Route
+                  path={"/all-getintouch-query"}
+                  element={<AllGetInTouch />}
+                />
+                <Route
+                  path={"/all-contact-query"}
+                  element={<AllContactQuery />}
+                />
+                <Route
+                  path={"/all-catelog-query"}
+                  element={<AllDownCatelogQuery />}
+                />
               </Route>
             </Routes>
           </div>
@@ -204,6 +242,10 @@ const Home = () => {
       ) : (
         <Routes>
           <Route path="/*" element={<Login />} />
+          <Route
+                path="/reset-password/:id/:token"
+                element={<ResetPassword />}
+              />
         </Routes>
       )}
     </>

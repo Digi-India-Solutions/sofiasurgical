@@ -1,90 +1,144 @@
-.show-password {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-    font-size: 0.875em;
-    color: var(--color-blue);
+/* General wrapper */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f5e9; /* light green background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.show-password input[type="checkbox"] {
-    margin-right: 5px;
+/* Login box styling */
+.login-box {
+  background: #ffffff;
+  border: 1px solid #c8e6c9;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 128, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
 }
 
-
-:root {
-    --bg-head: #f0fffe;
-    --bg-greenblue: #2dbcb6;
-    --bg-light-green: #b5e7e6;
-    --bg-light-greenblue: #ddf3f2;
-    --bg-dark-blue: #003873;
-    --color-blue: #4377a2;
-    --color-blue-light: #00AAA9;
+/* Headings */
+.login-box h2 {
+  color: #2e7d32;
+  margin-bottom: 10px;
 }
 
-.main-login {
-    background: var(--bg-head);
-    min-height: 100dvh;
-    display: grid;
-    place-items: center;
+.login-box p {
+  color: #4caf50;
+  font-size: 14px;
+  margin-bottom: 30px;
 }
 
-.login-container {
-    background-color: var(--bg-head);
-    border: 1px solid var(--color-blue-light);
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 400px;
-    min-width: 400px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Input fields */
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #a5d6a7;
+  border-radius: 5px;
+  background: #f1f8e9;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
-.login-title {
-    color: var(--bg-dark-blue);
-    text-align: center;
-    margin-bottom: 20px;
+.login-box input:focus {
+  border-color: #66bb6a;
 }
 
-.login-form .form-group {
-    margin-bottom: 15px;
+/* Forgot password */
+.actions span {
+  display: inline-block;
+  color: #388e3c;
+  font-size: 13px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  text-decoration: underline;
 }
 
-.login-form label {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--color-blue);
+/* Button */
+.login-box button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.login-form .form-control {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid var(--color-blue-light);
-    border-radius: 4px;
+.login-box button:hover {
+  background-color: #388e3c;
 }
 
-.error-text {
-    color: red;
-    font-size: 0.875em;
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(76, 175, 80, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
-.login-button {
-    width: 100%;
-    padding: 10px;
-    background-color: var(--bg-greenblue);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1em;
+/* Modal content */
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 128, 0, 0.2);
 }
 
-.login-button:hover {
-    background-color: var(--color-blue-light);
+.modal-content h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
 }
 
-@media only screen and (max-width:500px) {
-    .login-container {
-        min-width: auto;
-        width: 90%;
+.modal-content p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
 
-    }
+.modal-content input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #a5d6a7;
+  border-radius: 5px;
+  background: #f1f8e9;
+  margin-bottom: 20px;
+}
+
+/* Modal buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+  background-color: #4caf50;
+  color: white;
+}
+
+.modal-buttons .cancel {
+  background-color: #e0e0e0;
+  color: #333;
 }
