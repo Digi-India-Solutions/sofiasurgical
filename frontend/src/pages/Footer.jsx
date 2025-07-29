@@ -398,6 +398,11 @@ function Footer() {
                       </Link>
                     </li>
                     <li>
+                      <Link to="/csr" className="text-white">
+                        CSR
+                      </Link>
+                    </li>
+                    <li>
                       <Link to="/career" className="text-white">
                         Career
                       </Link>

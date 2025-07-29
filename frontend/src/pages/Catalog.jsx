@@ -301,6 +301,7 @@ function Catalog() {
                                     <img
                                         alt={item.catalogName}
                                         className="img-fluid"
+                                        style={{ height: '300px' }}
                                         src={`https://api.sofiasurgicals.com/${item.catalogImage}`}
                                         width="250"
                                         height="230"
